@@ -6,11 +6,11 @@ import phonenumbers
 from phonenumbers import geocoder
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
-BOT_TOKEN = "BOT TOKEN"
-CHAT_ID = GROUP ID
+BOT_TOKEN = "8641357712:AAFKDd58gRHmWwJ_cwzxBO1nMwyl5Dlagfo"
+CHAT_ID = -1003767795422
 
-API_URL = "API URL"
-TOKEN = "API TOKEN"
+API_URL = "http://147.135.212.197/crapi/time/viewstats"
+TOKEN = "R1ZQNEVBVHJilHRoiG5RfXZlV0ZelnV4eWSFSmBpT4tGc2qCYZI="
 
 bot = telegram.Bot(token=BOT_TOKEN)
 
