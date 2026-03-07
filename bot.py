@@ -114,7 +114,7 @@ while True:
 """
 
             keyboard = [
-                [InlineKeyboardButton("📱 Numbers Channel", url="https://t.me/NumOTPV1BOT")]
+                [InlineKeyboardButton("📱 Numbers Channel", url="https://t.me/TeamOFDark1")]
             ]
 
             reply_markup = InlineKeyboardMarkup(keyboard)
