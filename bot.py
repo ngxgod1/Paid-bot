@@ -6,11 +6,11 @@ import phonenumbers
 from phonenumbers import geocoder
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
-BOT_TOKEN = "8641357712:AAFKDd58gRHmWwJ_cwzxBO1nMwyl5Dlagfo"
-CHAT_ID = -1003767795422
+BOT_TOKEN = "8642429610:AAFFllSv1R4k7hP3f69jIm2a46eNw_LIlE0"
+CHAT_ID = -1003755474546
 
 API_URL = "http://147.135.212.197/crapi/time/viewstats"
-TOKEN = "R1ZQNEVBVHJilHRoiG5RfXZlV0ZelnV4eWSFSmBpT4tGc2qCYZI="
+TOKEN = "RFZWNEVBdlJ7iWhFfGZYan1UgWFqZIOGX2KChVxjmFt7aZVza4w="
 
 bot = telegram.Bot(token=BOT_TOKEN)
 
@@ -19,20 +19,12 @@ sent = set()
 print("✅ OTP Forwarder Started...")
 
 
-# Country flag function
 def get_flag(country_code):
     try:
         OFFSET = 127397
         return ''.join(chr(ord(c) + OFFSET) for c in country_code.upper())
     except:
         return "🌍"
-
-
-# Hide number
-def hide_number(num):
-    if len(num) > 8:
-        return num[:4] + "xxxx" + num[-4:]
-    return num
 
 
 while True:
@@ -63,7 +55,6 @@ while True:
             number = sms.get("num")
             message = str(sms.get("message"))
             dt = sms.get("dt")
-
             service = str(sms.get("cli", "UNKNOWN")).upper()
 
             unique = str(number) + str(dt)
@@ -73,7 +64,6 @@ while True:
 
             sent.add(unique)
 
-            # OTP detect
             otp_match = re.search(r"\d{3}-\d{3}|\d{6}", message)
 
             if otp_match:
@@ -81,7 +71,6 @@ while True:
             else:
                 otp = "N/A"
 
-            # Country detect
             try:
                 numobj = phonenumbers.parse("+" + number)
                 country = geocoder.description_for_number(numobj, "en")
@@ -91,15 +80,14 @@ while True:
                 country = "Unknown"
                 flag = "🌍"
 
-            hidden_number = hide_number(number)
-
             text = f"""
 ✅ {flag} {country} {service} OTP!
 
 ━━━━━━━━━━━━━━━━━━
 
-📱 Number: {hidden_number}
-🔒 OTP Code: {otp}
+📱 Number: +{number}
+🔑 OTP: {otp}
+
 ⚙ Service: {service}
 ⏳ Time: {dt}
 
@@ -109,12 +97,10 @@ while True:
 {message}
 
 ━━━━━━━━━━━━━━━━━━
-
-👤 By: @ngxgod1
 """
 
             keyboard = [
-                [InlineKeyboardButton("📱 Numbers Channel", url="https://t.me/TeamOFDark1")]
+                [InlineKeyboardButton("📱 Numbers Channel", url="https://t.me/NumOTPV1BOT")]
             ]
 
             reply_markup = InlineKeyboardMarkup(keyboard)
