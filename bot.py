@@ -7,7 +7,7 @@ from phonenumbers import geocoder
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 BOT_TOKEN = "8642429610:AAFFllSv1R4k7hP3f69jIm2a46eNw_LIlE0"
-CHAT_ID = -1003755474546
+CHAT_ID = -1003376156472
 
 API_URL = "http://147.135.212.197/crapi/time/viewstats"
 TOKEN = "R1ZQNEVBVHJilHRoiG5RfXZlV0ZelnV4eWSFSmBpT4tGc2qCYZI="
